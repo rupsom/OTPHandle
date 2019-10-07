@@ -32,7 +32,7 @@ public class AmazonOTPHandle {
 		driver.findElement(By.id("auth-country-picker-container")).click();
 
 		driver.findElement(By.xpath("//ul[@role='application']//li/a[contains(text(),'United States +1')]")).click();
-		driver.findElement(By.id("ap_phone_number")).sendKeys("phoennumber");
+		driver.findElement(By.id("ap_phone_number")).sendKeys("phonenumber");
 		driver.findElement(By.id("ap_password")).sendKeys("TestAutomation@123");
 		driver.findElement(By.id("continue")).click();
 
@@ -49,7 +49,7 @@ public class AmazonOTPHandle {
 
 	public static String getMessage() {
 		return getMessages().filter(m -> m.getDirection().compareTo(Message.Direction.INBOUND) == 0)
-				.filter(m -> m.getTo().equals("+phoennumber")).map(Message::getBody).findFirst()
+				.filter(m -> m.getTo().equals("+phonenumber")).map(Message::getBody).findFirst()
 				.orElseThrow(IllegalStateException::new);
 	}
 
