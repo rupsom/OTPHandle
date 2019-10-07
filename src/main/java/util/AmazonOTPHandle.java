@@ -14,8 +14,8 @@ import com.twilio.rest.api.v2010.account.Message;
 
 public class AmazonOTPHandle {
 
-	public static final String ACCOUNT_SID = "ACd95a88d31f18f35a36c5e5394558a1ba";
-	public static final String AUTH_TOKEN = "bfcd73e5cbf3c3a32dd6033d502019f0";
+	public static final String ACCOUNT_SID = "ACd95a88d31f18f35a36c5e539________";
+	public static final String AUTH_TOKEN = "bfcd73e5cbf3c3a32dd6033d********";
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -32,7 +32,7 @@ public class AmazonOTPHandle {
 		driver.findElement(By.id("auth-country-picker-container")).click();
 
 		driver.findElement(By.xpath("//ul[@role='application']//li/a[contains(text(),'United States +1')]")).click();
-		driver.findElement(By.id("ap_phone_number")).sendKeys("8588779141");
+		driver.findElement(By.id("ap_phone_number")).sendKeys("phoennumber");
 		driver.findElement(By.id("ap_password")).sendKeys("TestAutomation@123");
 		driver.findElement(By.id("continue")).click();
 
@@ -49,7 +49,7 @@ public class AmazonOTPHandle {
 
 	public static String getMessage() {
 		return getMessages().filter(m -> m.getDirection().compareTo(Message.Direction.INBOUND) == 0)
-				.filter(m -> m.getTo().equals("+18588779141")).map(Message::getBody).findFirst()
+				.filter(m -> m.getTo().equals("+phoennumber")).map(Message::getBody).findFirst()
 				.orElseThrow(IllegalStateException::new);
 	}
 
